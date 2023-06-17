@@ -96,7 +96,8 @@
             <configuration>
                 <mainClass>org.example.Main</mainClass> <!-- Remplacez par le chemin de votre classe principale -->
                 <arguments>
-                    <argument>${project.basedir}/src/main/resources/fichier-test.txt</argument> <!-- Remplacez par le chemin vers votre fichier -->
+                    <argument>${project.basedir}/src/main/resources/gosper-glider-gun-step0.life</argument>
+                    <!--<argument>${project.basedir}/src/main/resources/clock-step0.life</argument>-->
                 </arguments>
             </configuration>
         </plugin>
