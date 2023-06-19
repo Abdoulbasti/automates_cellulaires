@@ -6,4 +6,4 @@ compile:
 	mvn compile
 
 run:
-	mvn exec:java
+	mvn -e exec:java

@@ -5,3 +5,4 @@ all
 notes.txt
 Etudes_de_cas_automates
 test.txt
+src/main/java/org/example/CellularAutomaton.java
