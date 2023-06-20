@@ -9,29 +9,60 @@ public class Main {
     static String green = "\033[0;32m";  // GREEN
     static String reset = "\033[0m";     // Text Reset
     static int[] stats = {0, 1, 2, 3, 4, 5}; //Liste des etats posibles pour les automates cellulaire qui seront instancier
+    static String comlete_path;
+
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez entrer la lettre correspondant à l'automate : ");
+        String userInput = scanner.nextLine();
+        String path = "src/main/resources/" + userInput +"/";
+        Main automateA = new Main();   Main automateB = new Main();    Main automateC = new Main();
+        Main automateD = new Main();    Main automateE = new Main();
 
         try 
         {
-            if (args.length > 0) {
-                //Vous pouvez maintenant utiliser filePath pour lire le fichier
-                String filePath = args[0];
-                int[][] matrice = readMatrixFromFile(filePath);
-                AffichageEnBoucleMAtrice(matrice, stats, 0, Main::voisinages_jeu_de_vie, Main::jeu_de_vie);
-
-            } else {
-                System.out.println("Veuillez fournir un chemin de fichier en argument.");
+            if(userInput.equals("A"))
+            {
+                automateA.parametrageAutomates(automateA, path, scanner,  Main::voisinages_jeu_de_vie, Main::jeu_de_vie);
             }
+            else if(userInput.equals("B"))
+            {
+                
+            }
+
+            else if(userInput.equals("C"))
+            {
+              
+            }
+            else if(userInput.equals("D"))
+            {
+             
+            }
+
+            else if(userInput.equals("E"))
+            {
+              
+            }
+            scanner.close();    
         }catch(Exception e)
         {
             System.out.println(e.toString());
         }
-        
+    }
+
+    public void parametrageAutomates(Main automate, String path, Scanner scanner,  TetraFunction<int[][], int[], Integer, Integer, Integer> voisinages_jeu_de_vie,
+    TriFunction<int[][], int[], TetraFunction<int[][], int[] , Integer, Integer, Integer>, int[][]> matrixUpdateFunction) throws FileNotFoundException
+    {
+        System.out.println("Veuillez entrer le fichier de configuration initiale : ");
+        String filename = scanner.nextLine();
+        comlete_path = path + filename;
+        int[][] matrice = automate.readMatrixFromFile(comlete_path);
+        automate.AffichageEnBoucleMAtrice(matrice, stats, 0, Main::voisinages_jeu_de_vie, Main::jeu_de_vie);        
     }
 
     //Lire une matrice depuis un fichier filename de configuration, le stocker dans un tab de tab puis le reourner
-    static int[][] readMatrixFromFile(String filename) throws FileNotFoundException {
+    public int[][] readMatrixFromFile(String filename) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filename));
 
         // lire le nombre de lignes et de colonnes
@@ -55,7 +86,7 @@ public class Main {
     }
 
     //Afficher une matrice depuis ça reprentation en tab de tab 
-    static void afficherMatrice(int[][] matrix, int[] stats) {
+    public void afficherMatrice(int[][] matrix, int[] stats) {
         int lignes = matrix.length;
         int colonnes = lignes > 0 ? matrix[0].length : 0;
 
@@ -72,7 +103,7 @@ public class Main {
     }
 
     /*Methode qui appelle recursivement jusqu'a à chaque fois qu'on tape sur entre, l'utilisateur fait 'q' pour quitter*/
-    static void AffichageEnBoucleMAtrice(int[][] matrice, int[] stats, int etape, TetraFunction<int[][], int[], Integer, Integer, Integer> voisinage,
+    public void AffichageEnBoucleMAtrice(int[][] matrice, int[] stats, int etape, TetraFunction<int[][], int[], Integer, Integer, Integer> voisinage,
     TriFunction<int[][], int[], TetraFunction<int[][], int[] , Integer, Integer, Integer>, int[][]> matrixUpdateFunction) {
         Scanner scanner = new Scanner(System.in);
 
@@ -115,8 +146,8 @@ public class Main {
 
 
 
-    /**********************************************JEU DE LA VIE*********************************/
-    static int voisinages_jeu_de_vie(int[][] grid, int stats[], int row, int col) {
+    /**********************************************JEU DE LA VIE(Automate A)*********************************/
+    static public int voisinages_jeu_de_vie(int[][] grid, int stats[], int row, int col) {
         int count = 0;
         int[] dr = {-1, -1, -1, 0, 0, 1, 1, 1};
         int[] dc = {-1, 0, 1, -1, 1, -1, 0, 1};
@@ -158,6 +189,23 @@ public class Main {
         return newGrid;
     }
 
-    /******************************************AUTRES AUTOMATES*********************************/
+    /******************************************Automate B*********************************/
+
+
+
+    /******************************************Automate C*********************************/
+
+
+
+    /******************************************Automate D*********************************/
+
+
+
+
+    /******************************************Automate E*********************************/
+
+
+
+    /******************************************Automate F*********************************/
 
 }
