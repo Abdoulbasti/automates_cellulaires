@@ -94,7 +94,7 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.0.0</version> <!-- Assurez-vous d'utiliser la version la plus récente -->
             <configuration>
-                <mainClass>org.example.Main</mainClass> <!-- Remplacez par le chemin de votre classe principale -->
+                <mainClass>org.example.Automates</mainClass> <!-- Remplacez par le chemin de votre classe principale -->
                 <arguments>
                     <argument>${project.basedir}/src/main/resources/gosper-glider-gun-step0.life</argument>
                     <!--<argument>${project.basedir}/src/main/resources/clock-step0.life</argument>-->
