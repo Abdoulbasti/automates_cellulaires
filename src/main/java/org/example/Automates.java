@@ -383,7 +383,6 @@ public class Automates implements AutomateInterface{
     }
 
 
-    //L'automate cellulaire de Majority Rule(Règle de la majorité), unidimentionnel
     static int[][] brian_Brain(int[][] grid, int[] stats, TetraFunction<int[][], int[], Integer, Integer, Integer> voisinage) {
         int rows = grid.length;
         int cols = grid[0].length;
